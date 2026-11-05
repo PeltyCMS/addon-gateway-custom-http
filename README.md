@@ -1,31 +1,42 @@
 # Custom HTTP gateway
 
-Official **PeltyCMS** `gateway` WASM addon (`gateway-custom-http`).
+Accept Custom HTTP gateway payments in PeltyCMS checkout
 
-## Install
+Official **payment gateway** for [PeltyCMS](https://github.com/MythicalLTD/PeltyCMS) — identifier `gateway-custom-http`.
 
-1. Open Pelty Admin → Addons → Marketplace
-2. Set registry URL to `https://market.mythicalsystems.org/api/pelty/addons/registry.json`
-3. Download **Custom HTTP gateway**
+## Why this addon
 
-Marketplace: https://market.mythicalsystems.org/marketplace/product/gateway-custom-http  
-Product ID (CI): `49`
+Hosts who want customers to pay invoices without leaving Pelty checkout.
 
-## Develop
+## Features
 
-This repository is a git submodule of [MythicalLTD/PeltyCMS](https://github.com/MythicalLTD/PeltyCMS) at `extensions/addons/custom`.
+- Take invoice and checkout payments through **Custom HTTP gateway**
+- Signed webhook handling so paid invoices mark paid automatically
+- Fits Pelty tax, credits, refunds and multi-currency
+- Runs as sandboxed WASM — no custom PHP on your panel
+- Keys live in Pelty secrets, not in theme code
 
-```bash
-# from the PeltyCMS monorepo
-cargo xtask addons custom
-```
+## How it works
 
-## Release (Mythic Marketplace)
+1. Install **Custom HTTP gateway** from the [Mythical marketplace](https://market.mythicalsystems.org/marketplace/product/gateway-custom-http) (or Pelty Admin → Addons → Marketplace).
+2. Open Pelty Admin and enter your Custom HTTP gateway credentials in the addon settings.
+3. Attach it to the products / forms / login flows you care about.
+4. New orders and sign-ins use Custom HTTP gateway automatically.
 
-Same flow as [featherpanel-com/PterodactylPanelApi](https://github.com/featherpanel-com/PterodactylPanelApi):
+## Requirements
 
-1. Repo secrets: `MYTHIC_PRODUCT_ID`, `MYTHIC_RELEASE_TOKEN`
-2. Repo variable: `ADDON_DIR=custom`
-3. Actions → **Release Addon** → Run workflow
+- A running PeltyCMS panel with WASM addons enabled
+- Valid Custom HTTP gateway API / OAuth / panel credentials (depending on the integration)
+- Outbound HTTPS from the panel to Custom HTTP gateway
 
-Publishes the packed `gateway-custom-http.zip` via `MythicalLTD/.github/actions/publish-release@v1` and creates a GitHub Release.
+## Get it
+
+[Custom HTTP gateway on Mythical Marketplace](https://market.mythicalsystems.org/marketplace/product/gateway-custom-http)
+
+Free official build. Source for this package lives in this repository.
+
+## Support
+
+- Marketplace product page: https://market.mythicalsystems.org/marketplace/product/gateway-custom-http
+- PeltyCMS core: https://github.com/MythicalLTD/PeltyCMS
+- Issues for this addon: use this repo’s Issues tab
