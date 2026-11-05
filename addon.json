@@ -1,0 +1,25 @@
+{
+  "id": "gateway-custom-http",
+  "name": "Custom HTTP gateway",
+  "version": "0.1.0",
+  "kind": "gateway",
+  "engine": "wasm",
+  "provides": "custom_http",
+  "abi": "0.2.0",
+  "wasm": "addon.wasm",
+  "description": "addons.desc.gateway.custom_http",
+  "author": "MythicalSystems",
+  "permissions": [
+    "payments.process",
+    "network.outbound"
+  ],
+  "capabilities": {
+    "http": [
+      "*"
+    ],
+    "secrets": [
+      "*"
+    ]
+  },
+  "settings": []
+}
